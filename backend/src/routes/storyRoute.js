@@ -8,7 +8,7 @@ import upload from "../config/multerConfig.js";
 const storyRoute = express.Router();
 
 storyRoute.post("/create-story",jwtVerifyMiddleware,upload.single("media_url"),createStoryController);
-storyRoute.get("/get-story-data",jwtVerifyMiddleware,getStoryDataController);
-storyRoute.post("/get-story",jwtVerifyMiddleware,getStoryController);
+storyRoute.get("/get-story-data",getStoryDataController);
+storyRoute.post("/get-story",getStoryController);
 
 export default storyRoute;
