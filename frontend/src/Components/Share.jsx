@@ -7,7 +7,7 @@ import { FacebookIcon, FacebookShareButton, LinkedinIcon, LinkedinShareButton, T
 const Share = () => {
   const share = useSelector((state) => state.share.value);
   const dispatch = useDispatch();
-  const [link, setLink] = useState(`${import.meta.env.VITE_FRONTEND_URL}/posts/${share.payload}`);
+  const [link, setLink] = useState(`${window.location.href}/posts/${share.payload}`);
   const shareHandler = () => {
     dispatch(switchOffShare());
   };
