@@ -28,14 +28,14 @@ export async function otpController(req, resp, next) {
         if (error) {
           resp
             .status(500)
-            .send({ message: "Operation Failed", success: false });
+            .send({ message: error, success: false , });
           return;
         }
         resp.status(200).send({ message: "Mail Sent", success: true });
         return;
       });
     } else {
-      resp.status(500).send({ message: "Operation Failed", success: false });
+      resp.status(404).send({ message: "Operation Failed", success: false });
     }
   } catch (error) {
     resp.status(500).send({ message: error.message, success: false });
