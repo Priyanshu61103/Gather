@@ -3,7 +3,6 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import { dbConnection } from "./src/config/dbconfig.js";
-import { webHookController } from "./src/controllers/webHookController.js";
 import profileRoute from "./src/routes/profileRoute.js";
 import postRoute from "./src/routes/postRoute.js";
 import otpRoute from "./src/routes/otpRoute.js";
