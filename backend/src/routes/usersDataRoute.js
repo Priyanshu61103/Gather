@@ -4,6 +4,6 @@ import { jwtVerifyMiddleware } from "../middlewares/jwtVerifyMiddleware.js";
 
 const usersDataRoute = express.Router();
 
-usersDataRoute.get("/users-data",jwtVerifyMiddleware,usersDataController);
+usersDataRoute.get("/users-data",usersDataController);
 
 export default usersDataRoute;
