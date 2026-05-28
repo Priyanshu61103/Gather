@@ -3,8 +3,8 @@ import jwt from "jsonwebtoken";
 export function jwtVerifyMiddleware(req, resp , next) {
   try {
     const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
+     console.log(req.cookies);
     const token = req.cookies.token;
-    console.log(token);
     const result = jwt.verify(token, JWT_SECRET_KEY);
     next();
     return;
