@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 
-export function jwtVerifyMiddleware(req, resp , next) {
+export function jwtVerifyMiddleware(req, resp, next) {
   try {
     const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
     const token = req.cookies.token;
@@ -8,7 +8,10 @@ export function jwtVerifyMiddleware(req, resp , next) {
     next();
     return;
   } catch (error) {
-     console.log(error.message);
-     return resp.status(401).send({message:"Unauthorized User",success:false}); 
+    console.log(req.cookies);
+    console.log(error.message);
+    return resp
+      .status(401)
+      .send({ message: "Unauthorized User", success: false });
   }
 }
