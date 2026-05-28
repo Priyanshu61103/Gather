@@ -142,7 +142,7 @@ const SignUpPage = () => {
 
       const data = await response.json();
       if (data.success) {
-        document.cookie = `token=${data.token}; Secure; SameSite=None`;
+        document.cookie = `token=${data.token}; path=/; max-age=86400; Secure; SameSite=None`;
         localStorage.setItem("user", data.payload.username);
         localStorage.setItem("name", data.payload.full_name);
         localStorage.setItem("email", data.payload.email);
@@ -197,7 +197,7 @@ const SignUpPage = () => {
                   className="flex flex-wrap gap-8 justify-center mt-8"
                   onSubmit={signUpHandler}
                 >
-                  <div className={emailValidity != "" &&  "ml-4 lg:ml-0"}>
+                  <div className={emailValidity != "" && "ml-4 lg:ml-0"}>
                     <h1
                       htmlFor="email"
                       className="font-semibold text-xs lg:text-sm mb-1"
@@ -221,7 +221,7 @@ const SignUpPage = () => {
                     <p className="ml-4 lg:ml-0 text-red-500">{emailValidity}</p>
                   </div>
 
-                  <div className={passwordValidity != "" &&  "ml-4 lg:ml-0"}>
+                  <div className={passwordValidity != "" && "ml-4 lg:ml-0"}>
                     <h1
                       htmlFor="email"
                       className="font-semibold text-xs lg:text-sm mb-1"
@@ -264,7 +264,9 @@ const SignUpPage = () => {
                         onClick={() => setVisibility(!visibility)}
                       />
                     </div>
-                    <p className="ml-4 lg:ml-0 text-red-500">{passwordValidity}</p>
+                    <p className="ml-4 lg:ml-0 text-red-500">
+                      {passwordValidity}
+                    </p>
                   </div>
 
                   <button className="lg:w-80 w-64 p-2 bg-black rounded-lg flex justify-center text-sm lg:text-md items-center font-semibold text-white">
