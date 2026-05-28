@@ -1,0 +1,31 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+input::placeholder {
+  color: gray;
+  font-weight: 500;
+}
+
+.container {
+  overflow: auto;
+
+  /* &::-webkit-scrollbar {
+    display: none;
+  } */
+
+  scrollbar-width: none;
+
+  -ms-overflow-style: none; 
+}
+
+textarea::placeholder {
+  color: var(--placeholder-color);
+}
