@@ -10,7 +10,7 @@ const SignInPage = () => {
       <div className="flex gap-32 lg:gap-50 ml-5 lg:mx-15 flex-col lg:flex-row">
         <div>
           <div className="flex gap-x-2 lg:ml-40 ml-0 lg:mt-20">
-            <img src="../assets/group_users.png" alt="" className="h-10 w-24 lg:h-12 lg:w-28" />
+            <img src="https://gather-frontend-xi6u.onrender.com" alt="" className="h-10 w-24 lg:h-12 lg:w-28" />
             <div>
               <div className="flex gap-x-2 mt-1">
                 <img src="https://ik.imagekit.io/priyanshu61103/star-icon.png" alt="" className="h-4 w-4 lg:h-5 lg:w-5" />
