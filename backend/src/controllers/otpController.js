@@ -24,7 +24,7 @@ export async function otpController(req, resp, next) {
         text: `Hello user , your otp for verification is ${otp}`,
       };
 
-      transport.sendMail(mailOptions, (error, info) => {
+      await transport.sendMail(mailOptions, (error, info) => {
         if (error) {
           resp
             .status(500)
