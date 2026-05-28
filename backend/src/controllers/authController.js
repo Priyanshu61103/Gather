@@ -107,9 +107,9 @@ export async function authLoginController(req, resp) {
               return;
             }
             resp.cookie("token", token, {
-              httpOnly: true, // Protects against XSS attacks
-              secure: true, // Required for HTTPS on Render
-              sameSite: "none", // Allows cross-domain cookie transfers
+              httpOnly: true, 
+              secure: true,
+              sameSite: "none",
               maxAge: 24 * 60 * 60 * 1000,
             });
             resp.status(200).send({
@@ -173,9 +173,9 @@ export async function authGoogleController(req, resp) {
       };
       const token = jwt.sign(payload, JWT_SECRET_KEY, { expiresIn: "10d" });
       resp.cookie("token", token, {
-        httpOnly: true, // Protects against XSS attacks
-        secure: true, // Required for HTTPS on Render
-        sameSite: "none", // Allows cross-domain cookie transfers
+        httpOnly: true, 
+        secure: true,
+        sameSite: "none",
         maxAge: 24 * 60 * 60 * 1000,
       });
       resp.status(200).send({

@@ -8,7 +8,6 @@ export function jwtVerifyMiddleware(req, resp, next) {
     next();
     return;
   } catch (error) {
-    console.log(req.cookies);
     console.log(error.message);
     return resp
       .status(401)
