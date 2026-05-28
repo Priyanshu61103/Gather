@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
-const dbName = "gather";
-const url = `mongodb+srv://priyanshuparashar108:${process.env.MONGODB_PASSWORD}@cluster0.rkiizre.mongodb.net/${dbName}?appName=Cluster0`;
+const url = process.env.MONGODB_URL;
 
 export async function dbConnection(){
     try{
