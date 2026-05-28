@@ -45,7 +45,7 @@ export async function authSignUpController(req, resp) {
         _id: result._id,
         email: result.email,
         username: result.username,
-        full_name:result.full_name
+        full_name: result.full_name,
       };
       const result2 = await otpModel.deleteMany({ email: email });
       jwt.sign(
@@ -92,7 +92,7 @@ export async function authLoginController(req, resp) {
           _id: result._id,
           username: result.username,
           email: result.email,
-          full_name:result.full_name
+          full_name: result.full_name,
         };
         jwt.sign(
           payload,
@@ -106,11 +106,15 @@ export async function authLoginController(req, resp) {
               });
               return;
             }
-
+            resp.cookie("token", token, {
+              httpOnly: true, // Protects against XSS attacks
+              secure: true, // Required for HTTPS on Render
+              sameSite: "none", // Allows cross-domain cookie transfers
+              maxAge: 24 * 60 * 60 * 1000,
+            });
             resp.status(200).send({
               message: "Data Found in Database",
               success: true,
-              token,
               payload,
             });
           },
@@ -145,7 +149,7 @@ export async function authGoogleController(req, resp) {
         _id: result._id,
         email: result.email,
         username: result.username,
-        full_name:result.full_name
+        full_name: result.full_name,
       };
       const token = jwt.sign(payload, JWT_SECRET_KEY, { expiresIn: "10d" });
       resp.status(200).send({
@@ -165,17 +169,20 @@ export async function authGoogleController(req, resp) {
         _id: result2._id,
         email: result2.email,
         username: result2.username,
-        full_name:result.full_name
+        full_name: result.full_name,
       };
       const token = jwt.sign(payload, JWT_SECRET_KEY, { expiresIn: "10d" });
-      resp
-        .status(200)
-        .send({
-          message: "Data Stored in Database",
-          success: true,
-          payload,
-          token,
-        });
+      resp.cookie("token", token, {
+        httpOnly: true, // Protects against XSS attacks
+        secure: true, // Required for HTTPS on Render
+        sameSite: "none", // Allows cross-domain cookie transfers
+        maxAge: 24 * 60 * 60 * 1000,
+      });
+      resp.status(200).send({
+        message: "Data Stored in Database",
+        success: true,
+        payload,
+      });
       return;
     } else {
       resp

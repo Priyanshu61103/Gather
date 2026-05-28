@@ -142,7 +142,6 @@ const SignUpPage = () => {
 
       const data = await response.json();
       if (data.success) {
-        document.cookie = `token=${data.token}; path=/; max-age=86400; Secure; SameSite=None`;
         localStorage.setItem("user", data.payload.username);
         localStorage.setItem("name", data.payload.full_name);
         localStorage.setItem("email", data.payload.email);
