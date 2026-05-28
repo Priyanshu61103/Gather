@@ -56,7 +56,6 @@ export async function getMessagesController(req, resp) {
       { from_user_email: email_2, to_user_email: email_1 },
       { $set: { seen: true } },
     );
-    console.log(result);
     if (result) {
       const result2 = await messageModel.find({
         $or: [

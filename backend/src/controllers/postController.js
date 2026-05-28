@@ -32,7 +32,6 @@ export async function createPostController(req, resp) {
       });
     }
     const result = await postModel.create(data);
-    console.log("Result:", result);
     if (result) {
       const userInfo = await userModel.findOne({ email: data.user });
       let postArray = userInfo.posts;
@@ -41,9 +40,7 @@ export async function createPostController(req, resp) {
         { _id: userInfo._id },
         { $set: { posts: postArray } },
       );
-      console.log("Userinfo:", result2);
       if (!result2) {
-        console.log("Post Not Saved");
         return;
       }
       resp.status(200).send({ message: "Posted", success: true, result });
@@ -53,7 +50,6 @@ export async function createPostController(req, resp) {
       return;
     }
   } catch (error) {
-    console.log(error.message);
     resp.status(500).send({ message: error.message, success: false });
     return;
   }
@@ -90,12 +86,10 @@ export async function updateLikesController(req, resp) {
   try {
     const { id } = req.body;
     const { likes } = req.body;
-    console.log(req.body);
     const result = await postModel.updateOne(
       { _id: id },
       { $set: { likes_count: likes } },
     );
-    console.log(result);
     if (result) {
       resp.status(200).send({ message: "Likes Updated", success: true });
       return;

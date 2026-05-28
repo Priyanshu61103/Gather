@@ -13,7 +13,6 @@ export async function usersDataController(req,resp){
          return;
       }
    }catch(error){
-       console.log(error.message);
        resp.status(500).send({message:error.message,success:false});    
        return;
    } 

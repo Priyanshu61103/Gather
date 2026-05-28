@@ -4,13 +4,10 @@ export async function updateFollowingController(req, resp) {
   try {
     const { email } = req.body;
     const { following } = req.body;
-    console.log(email);
-    console.log(following);
     const result = await userModel.updateOne(
       { email: email },
       { $set: { following } },
     );
-    console.log(result);
     if (result.modifiedCount > 0) {
       resp.status(200).send({
         message: "Following Data Updated in Database",
@@ -37,7 +34,6 @@ export async function updateFollowersController(req, resp) {
       { email: email },
       { $addToSet: { followers: followerEmail } },
     );
-    console.log(result);
     if (result.modifiedCount > 0) {
       resp.status(200).send({
         message: "Followers Data Updated in Database",

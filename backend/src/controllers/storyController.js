@@ -28,7 +28,6 @@ export async function createStoryController(req, resp) {
           { $set: { stories: storiesArr } },
         );
         if (!result2) {
-          console.log("Stories Not Saved");
           return;
         }
         resp
@@ -36,7 +35,6 @@ export async function createStoryController(req, resp) {
           .send({ message: "Story Stored in Database", success: true, result });
         return;
       } else {
-        console.log("Stories Not Saved");
         return;
       }
     }
@@ -74,10 +72,8 @@ export async function getStoryDataController(req, resp) {
 export async function getStoryController(req,resp){
    try{
       const{ _id } = req.body;
-      console.log(_id);
       const result = await storyModel.findOne({_id});
       if(result){
-         console.log(result);
          resp.status(200).send({message:"Data Fetched from Database",success:true,result});
          return;
       }

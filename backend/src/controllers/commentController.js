@@ -23,7 +23,6 @@ export async function addCommentController(req, resp) {
 export async function getCommentsController(req, resp) {
   try {
     const { post_id } = req.params;
-    console.log(post_id);
     const result = await commentModel.find({ post_id });
     if (result) {
       resp.status(200).send({

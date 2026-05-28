@@ -15,7 +15,7 @@ import connectRequestRoute from "./src/routes/connectRequestRoute.js";
 import messageRoute from "./src/routes/messageRoute.js";
 import commentRoute from "./src/routes/commentRoute.js";
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3200;
 const app = express();
 
 app.use(cors({

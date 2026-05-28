@@ -36,7 +36,6 @@ export async function editProfileController(req, resp) {
         file: stream,
         fileName: files["profile_picture"][0].originalname,
       });
-      console.log("path:", response.filePath);
       const url = imageKit.helper.buildSrc({
         urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
         src: response.filePath,
@@ -79,7 +78,6 @@ export async function editProfileController(req, resp) {
       return;
     }
   } catch (error) {
-    console.log(error.message);
     resp.status(500).send({ message: error.message, success: false });
     return;
   }

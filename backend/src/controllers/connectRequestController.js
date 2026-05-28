@@ -35,7 +35,6 @@ export async function connectRequestController(req, resp) {
     });
     return;
   } catch (error) {
-    console.log(error.message);
     resp.status(500).send({ message: error.message, success: false });
     return;
   }
@@ -45,8 +44,6 @@ export const acceptedRequestController = async (req, resp) => {
   try {
     const { sender } = req.body;
     const { receiver } = req.body;
-    console.log(sender);
-    console.log(receiver);
     const result = await userModel.updateMany(
       { email: receiver },
       { $addToSet: { connections: sender }, $pull: { receiveRequest: sender } },

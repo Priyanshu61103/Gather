@@ -8,8 +8,7 @@ export async function otpController(req, resp, next) {
     const email = req.body.email;
     const otp = Math.floor(Math.random() * 1000000)
       .toString()
-      .padStart(6, 0);
-    console.log(otp);  
+      .padStart(6, 0);  
     const salt = await bcrypt.genSalt(10);
     const hashedOtp = await bcrypt.hash(otp, salt);
     const data = {
@@ -18,8 +17,6 @@ export async function otpController(req, resp, next) {
     };
     const result = await otpModel.create(data);
     if (result) {
-      console.log(data);
-      console.log(result);
       const mailOptions = {
         from: "Gather",
         to: email,
