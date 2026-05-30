@@ -4,6 +4,6 @@ import { jwtVerifyMiddleware } from "../middlewares/jwtVerifyMiddleware.js";
 
 const followRoute = express.Router();
 
-followRoute.put("/update-following",jwtVerifyMiddleware,updateFollowingController);
-followRoute.put("/update-follower",jwtVerifyMiddleware,updateFollowersController);
+followRoute.put("/api/update-following",jwtVerifyMiddleware,updateFollowingController);
+followRoute.put("/api/update-follower",jwtVerifyMiddleware,updateFollowersController);
 export default followRoute;

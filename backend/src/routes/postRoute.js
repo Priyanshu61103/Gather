@@ -6,8 +6,8 @@ import upload from "../config/multerConfig.js";
 
 const postRoute = express.Router();
 
-postRoute.get("/get-posts-data",jwtVerifyMiddleware,getPostsController);
-postRoute.post("/create-post",jwtVerifyMiddleware,upload.array("image_urls"),createPostController);
-postRoute.put("/update-likes",jwtVerifyMiddleware,updateLikesController);
-postRoute.get("/get-post/:id",jwtVerifyMiddleware,getPostContoller);
+postRoute.get("/api/get-posts-data",jwtVerifyMiddleware,getPostsController);
+postRoute.post("/api/create-post",jwtVerifyMiddleware,upload.array("image_urls"),createPostController);
+postRoute.put("/api/update-likes",jwtVerifyMiddleware,updateLikesController);
+postRoute.get("/api/get-post/:id",jwtVerifyMiddleware,getPostContoller);
 export default postRoute;

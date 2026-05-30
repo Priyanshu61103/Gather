@@ -4,7 +4,7 @@ import { otpVerifyMiddleware } from "../middlewares/otpVerifyMiddleware.js";
 import { passwordHashingMiddleware } from "../middlewares/passwordHashingMidleware.js";
 const authRoute = express.Router();
 
-authRoute.post("/auth/signup",otpVerifyMiddleware,passwordHashingMiddleware,authSignUpController);
-authRoute.post("/auth/login",authLoginController);
-authRoute.post("/auth/google",authGoogleController);
+authRoute.post("/api/auth/signup",otpVerifyMiddleware,passwordHashingMiddleware,authSignUpController);
+authRoute.post("/api/auth/login",authLoginController);
+authRoute.post("/api/auth/google",authGoogleController);
 export default authRoute;

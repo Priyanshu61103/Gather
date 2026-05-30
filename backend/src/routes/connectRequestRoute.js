@@ -3,7 +3,7 @@ import { jwtVerifyMiddleware } from "../middlewares/jwtVerifyMiddleware.js";
 import { acceptedRequestController, connectRequestController, rejectedRequestController } from "../controllers/connectRequestController.js";
 const connectRequestRoute = express.Router();
 
-connectRequestRoute.put("/save-connect-request",jwtVerifyMiddleware,connectRequestController);
-connectRequestRoute.put("/accept-request",jwtVerifyMiddleware,acceptedRequestController);
-connectRequestRoute.put("/reject-request",jwtVerifyMiddleware,rejectedRequestController);
+connectRequestRoute.put("/api/save-connect-request",jwtVerifyMiddleware,connectRequestController);
+connectRequestRoute.put("/api/accept-request",jwtVerifyMiddleware,acceptedRequestController);
+connectRequestRoute.put("/api/reject-request",jwtVerifyMiddleware,rejectedRequestController);
 export default connectRequestRoute;

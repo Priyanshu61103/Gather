@@ -6,7 +6,7 @@ import upload from "../config/multerConfig.js";
 
 const profileRoute = express.Router();
 
-profileRoute.post("/profile",jwtVerifyMiddleware,profileController);
-profileRoute.post("/profile/update-data",jwtVerifyMiddleware,upload.fields([{name:"profile_picture"},{name:"cover_photo"}]),editProfileController);
+profileRoute.post("/api/profile",jwtVerifyMiddleware,profileController);
+profileRoute.post("/api/profile/update-data",jwtVerifyMiddleware,upload.fields([{name:"profile_picture"},{name:"cover_photo"}]),editProfileController);
 
 export default profileRoute

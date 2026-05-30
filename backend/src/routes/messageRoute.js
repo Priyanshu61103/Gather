@@ -5,6 +5,6 @@ import upload from "../config/multerConfig.js";
 
 const messageRoute = express.Router();
 
-messageRoute.post("/post-message",jwtVerifyMiddleware,upload.single("message_image"),postMessageController);
-messageRoute.post("/get-messages",jwtVerifyMiddleware,getMessagesController);
+messageRoute.post("/api/post-message",jwtVerifyMiddleware,upload.single("message_image"),postMessageController);
+messageRoute.post("/api/get-messages",jwtVerifyMiddleware,getMessagesController);
 export default messageRoute;

@@ -4,6 +4,6 @@ import { jwtVerifyMiddleware } from "../middlewares/jwtVerifyMiddleware.js";
 
 const otpRoute = express.Router();
 
-otpRoute.post("/otp-creation",otpController);
+otpRoute.post("/api/otp-creation",otpController);
 
 export default otpRoute;
