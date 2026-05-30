@@ -59,9 +59,9 @@ export async function editProfileController(req, resp) {
         transformation: [{ quality: "auto", format: "webp", width: "1280" }],
       });
       updatedData.cover_photo = url;
-        fs.unlink(files["cover_photo"][0].path, (error) => {
-        if (error) console.log(error);
-      });
+      //   fs.unlink(files["cover_photo"][0].path, (error) => {
+      //   if (error) console.log(error);
+      // });
     }
 
     const result = await userModel.updateMany(
