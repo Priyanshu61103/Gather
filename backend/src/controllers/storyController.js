@@ -8,14 +8,16 @@ export async function createStoryController(req, resp) {
     let data = req.body;
     const mediaFile = req.file;
     if (mediaFile) {
-      const response = await imageKit.files.upload({
-        file: fs.createReadStream(mediaFile.path),
+      const response = await imageKit.upload({
+        file: mediaFile.buffer,
         fileName: mediaFile.originalname,
       });
-      data.media_url = response.url;
-      fs.unlink(mediaFile.path, (error) => {
-        if (error) console.log(error);
+      const url = imageKit.url({
+        urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
+        path: response.filePath,
+        transformation: [{ quality: "auto", format: "webp", width: "512" }],
       });
+      data.media_url = url;
     }
     const result = await storyModel.create(data);
     if (result) {
@@ -62,25 +64,27 @@ export async function getStoryDataController(req, resp) {
       .send({ message: "Data Not Fetched From Database", success: false });
     return;
   } catch (error) {
-    resp
-      .status(500)
-      .send({ message: error.message , success: false });
+    resp.status(500).send({ message: error.message, success: false });
     return;
   }
 }
 
-export async function getStoryController(req,resp){
-   try{
-      const{ _id } = req.body;
-      const result = await storyModel.findOne({_id});
-      if(result){
-         resp.status(200).send({message:"Data Fetched from Database",success:true,result});
-         return;
-      }
-      resp.status(500).send({message:"Data Not Fetched from Database" , success:false});
+export async function getStoryController(req, resp) {
+  try {
+    const { _id } = req.body;
+    const result = await storyModel.findOne({ _id });
+    if (result) {
+      resp
+        .status(200)
+        .send({ message: "Data Fetched from Database", success: true, result });
       return;
-   }catch(error){
-      resp.status(500).send({message:error.message , success:false});
-      return;
-   } 
+    }
+    resp
+      .status(500)
+      .send({ message: "Data Not Fetched from Database", success: false });
+    return;
+  } catch (error) {
+    resp.status(500).send({ message: error.message, success: false });
+    return;
+  }
 }
