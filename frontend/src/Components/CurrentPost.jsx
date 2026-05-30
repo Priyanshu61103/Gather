@@ -55,7 +55,7 @@ const CurrentPost = () => {
   const getUserData = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/users-data`,
+        `/api/users-data`,
         {
           credentials: "include",
         },
@@ -95,7 +95,7 @@ const CurrentPost = () => {
       }
 
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/update-likes`,
+        `/api/update-likes`,
         {
           method: "PUT",
           body: JSON.stringify({ id, likes }),
@@ -130,7 +130,7 @@ const CurrentPost = () => {
   const getPost = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/get-post/${id}`,
+        `/api/get-post/${id}`,
         {
           credentials: "include",
         },
@@ -155,7 +155,7 @@ const CurrentPost = () => {
   const getProfileData = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/profile`,
+        `/api/profile`,
         {
           credentials: "include",
           method: "POST",
@@ -209,7 +209,7 @@ const CurrentPost = () => {
       setComments(arr3);
 
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/update-comment`,
+        `/api/update-comment`,
         {
           method: "PUT",
           body: JSON.stringify(arr),
@@ -261,7 +261,7 @@ const CurrentPost = () => {
       setComments(arr3);
 
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/update-comment`,
+        `/api/update-comment`,
         {
           method: "PUT",
           body: JSON.stringify(arr),
@@ -298,7 +298,7 @@ const CurrentPost = () => {
   const getComments = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/get-comments/${id}`,
+        `/api/get-comments/${id}`,
         {
           method: "GET",
           credentials: "include",
@@ -345,7 +345,7 @@ const CurrentPost = () => {
       console.log(info);
 
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/add-comment`,
+        `/api/add-comment`,
         {
           method: "POST",
           body: JSON.stringify(info),

@@ -36,7 +36,7 @@ const CreatePost = () => {
       formData.append("updatedAt", new Date());
       console.log(Object.fromEntries(formData));
 
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/create-post`, {
+      const response = await fetch(`/api/create-post`, {
         method: "POST",
         body: formData,
         credentials:"include"

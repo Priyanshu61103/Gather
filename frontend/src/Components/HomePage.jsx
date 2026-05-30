@@ -28,7 +28,7 @@ function HomePage() {
   const getProfileData = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/profile`,
+        `/api/profile`,
         {
           credentials: "include",
           method: "POST",

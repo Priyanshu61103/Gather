@@ -43,7 +43,7 @@ const CommentSection = () => {
       setComments(arr3);
 
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/update-comment`,
+        `/api/update-comment`,
         {
           method: "PUT",
           body: JSON.stringify(arr),
@@ -95,7 +95,7 @@ const CommentSection = () => {
       setComments(arr3);
 
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/update-comment`,
+        `/api/update-comment`,
         {
           method: "PUT",
           body: JSON.stringify(arr),
@@ -132,7 +132,7 @@ const CommentSection = () => {
   const getComments = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/get-comments/${commentSection.payload}`,
+        `/api/get-comments/${commentSection.payload}`,
         {
           method: "GET",
           credentials: "include",
@@ -179,7 +179,7 @@ const CommentSection = () => {
       console.log(info);
 
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/add-comment`,
+        `/api/add-comment`,
         {
           method: "POST",
           body: JSON.stringify(info),

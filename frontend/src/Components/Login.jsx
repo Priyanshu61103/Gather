@@ -41,7 +41,7 @@ const Login = () => {
     }
 
     if (email != email.toLowerCase()) {
-      setEmailValidity("No Capital letter is allowed in email address");
+      setEmailValidity("No C/apital letter is allowed in email address");
       return false;
     }
 
@@ -75,7 +75,7 @@ const Login = () => {
     }
 
     if (upperLetter == 0) {
-      setPasswordValidity("Password must contain capital letter");
+      setPasswordValidity("Password must contain c/apital letter");
       return false;
     }
 
@@ -91,7 +91,7 @@ const Login = () => {
     try {
       event.preventDefault();
       if (!checkValidation()) return;
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/auth/login`, {
+      const response = await fetch(`/api/auth/login`, {
         method: "POST",
         body: JSON.stringify({ email, password }),
         headers: {
@@ -128,7 +128,7 @@ const Login = () => {
   const googleAuthHandler = async (event) => {
     try {
       const googleToken = event.credential;
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/auth/google`, {
+      const response = await fetch(`/api/auth/google`, {
         method: "POST",
         body: JSON.stringify({ googleToken }),
         headers: {

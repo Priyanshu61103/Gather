@@ -60,7 +60,7 @@ const CreateStory = () => {
       }
       formData.append("background_color", bgColor[index]);
 
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/create-story`, {
+      const response = await fetch(`/api/create-story`, {
         credentials: "include",
         method: "POST",
         body: formData,

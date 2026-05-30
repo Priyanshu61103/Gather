@@ -32,7 +32,7 @@ const EditProfile = ({ data }) => {
     formData.append("_id", editData._id);
     console.log(Object.fromEntries(formData.entries()));
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/profile/update-data`, {
+      const response = await fetch(`/api/profile/update-data`, {
         method: "POST",
         body: formData,
         credentials: "include",

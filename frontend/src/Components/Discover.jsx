@@ -58,7 +58,7 @@ const Discover = () => {
         following: newFollowingArray,
       };
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/update-following`,
+        `/api/update-following`,
         {
           method: "PUT",
           body: JSON.stringify(info),
@@ -95,7 +95,7 @@ const Discover = () => {
         followerEmail: profile.email,
       };
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/update-follower`,
+        `/api/update-follower`,
         {
           method: "PUT",
           body: JSON.stringify(info),
@@ -169,7 +169,7 @@ const Discover = () => {
       };
 
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/save-connect-request`,
+        `/api/save-connect-request`,
         {
           method: "PUT",
           credentials: "include",

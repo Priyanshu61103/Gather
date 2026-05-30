@@ -26,7 +26,7 @@ const MessagePage = () => {
       };
 
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/get-messages`,
+        `/api/get-messages`,
         {
           method: "POST",
           body: JSON.stringify(info),
@@ -83,7 +83,7 @@ const MessagePage = () => {
         setImage();
       }
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/post-message`,
+        `/api/post-message`,
         {
           method: "POST",
           credentials: "include",

@@ -37,7 +37,7 @@ const Connections = () => {
   const getData = async (email) => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/profile`,
+        `/api/profile`,
         {
           method: "POST",
           credentials: "include",
@@ -108,7 +108,7 @@ const Connections = () => {
         receiver: localStorage.getItem("email"),
       };
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/accept-request`,
+        `/api/accept-request`,
         {
           method: "PUT",
           credentials: "include",
@@ -163,7 +163,7 @@ const Connections = () => {
         receiver: localStorage.getItem("email"),
       };
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/reject-request`,
+        `/api/reject-request`,
         {
           method: "PUT",
           credentials: "include",

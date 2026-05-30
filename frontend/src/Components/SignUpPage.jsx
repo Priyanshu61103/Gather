@@ -42,7 +42,7 @@ const SignUpPage = () => {
     }
 
     if (email != email.toLowerCase()) {
-      setEmailValidity("No Capital letter is allowed in email address");
+      setEmailValidity("No C/apital letter is allowed in email address");
       return false;
     }
 
@@ -76,7 +76,7 @@ const SignUpPage = () => {
     }
 
     if (upperLetter == 0) {
-      setPasswordValidity("Password must contain capital letter");
+      setPasswordValidity("Password must contain c/apital letter");
       return false;
     }
     if (lowerLetter == 0) {
@@ -94,7 +94,7 @@ const SignUpPage = () => {
       const userData = { email: email, password: password };
       console.log(userData);
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/otp-creation`,
+        `/api/otp-creation`,
         {
           method: "POST",
           body: JSON.stringify(userData),
@@ -125,7 +125,7 @@ const SignUpPage = () => {
     try {
       const googleToken = event.credential;
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/auth/google`,
+        `/api/auth/google`,
         {
           method: "POST",
           body: JSON.stringify({ googleToken }),

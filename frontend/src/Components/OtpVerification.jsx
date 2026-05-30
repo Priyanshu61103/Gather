@@ -20,7 +20,7 @@ const OtpVerification = () => {
         password,
         otp,
       };
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/auth/signup`, {
+      const response = await fetch(`/api/auth/signup`, {
         method: "POST",
         body: JSON.stringify(data),
         headers: {

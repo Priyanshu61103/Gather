@@ -107,9 +107,9 @@ export async function authLoginController(req, resp) {
               return;
             }
             resp.cookie("token", token, {
-              httpOnly: true, 
+              httpOnly: true,
               secure: true,
-              sameSite: "none",
+              sameSite: "lax",
               maxAge: 24 * 60 * 60 * 1000,
             });
             resp.status(200).send({
@@ -173,9 +173,9 @@ export async function authGoogleController(req, resp) {
       };
       const token = jwt.sign(payload, JWT_SECRET_KEY, { expiresIn: "10d" });
       resp.cookie("token", token, {
-        httpOnly: true, 
+        httpOnly: true,
         secure: true,
-        sameSite: "none",
+        sameSite: "lax",
         maxAge: 24 * 60 * 60 * 1000,
       });
       resp.status(200).send({

@@ -29,7 +29,7 @@ const Story = () => {
     const profileArr = arr.map(async (info) => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}/profile`,
+          `/api/profile`,
           {
             credentials: "include",
             method: "POST",
@@ -60,7 +60,7 @@ const Story = () => {
   const getStoriesData = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/get-story-data`,
+        `/api/get-story-data`,
         {
           credentials: "include",
         },

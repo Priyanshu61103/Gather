@@ -12,7 +12,7 @@ const ConnectionsTab = () => {
   const getData = async (email) => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/profile`,
+        `/api/profile`,
         {
           method: "POST",
           credentials: "include",

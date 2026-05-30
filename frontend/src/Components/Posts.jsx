@@ -37,7 +37,7 @@ const Posts = () => {
   const getUsersData = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/users-data`,
+        `/api/users-data`,
         {
           credentials: "include",
         },
@@ -78,7 +78,7 @@ const Posts = () => {
       }
 
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/update-likes`,
+        `/api/update-likes`,
         {
           method: "PUT",
           body: JSON.stringify({ id, likes }),
@@ -113,7 +113,7 @@ const Posts = () => {
   const getPostsData = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/get-posts-data`,
+        `/api/get-posts-data`,
         {
           credentials: "include",
         },

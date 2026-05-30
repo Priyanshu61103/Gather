@@ -17,7 +17,7 @@ const StoryPage = () => {
     try {
       const info = { _id: id };
       console.log(info);
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/get-story`, {
+      const response = await fetch(`/api/get-story`, {
         credentials: "include",
         method: "POST",
         body: JSON.stringify(info),

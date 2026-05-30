@@ -31,7 +31,7 @@ const Profile = () => {
 
   const getPostsData = async () => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/get-posts-data`, {
+      const response = await fetch(`/api/get-posts-data`, {
         credentials: "include",
       });
       if (!response) {
@@ -58,7 +58,7 @@ const Profile = () => {
 
   const getProfileData = async () => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/profile`, {
+      const response = await fetch(`/api/profile`, {
         credentials: "include",
         method: "POST",
         body: JSON.stringify({ email }),
