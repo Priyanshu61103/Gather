@@ -179,7 +179,7 @@ const Sidebar = () => {
 
         {userProfileData.payload && userProfileData.payload[0] && (
           <Link to={`/profile/${email}`}>
-            <div className="flex gap-x-2 mt-16 lg:mt-24 relative lg:bottom-10 bottom-0 hover:bg-gray-300 rounded-xl p-2">
+            <div className="flex gap-x-2 mt-24 relative lg:bottom-10 bottom-0 hover:bg-gray-300 rounded-xl p-2">
               {profileData.payload[0].profile_picture ? (
                 <img
                   src={userProfileData.payload[0].profile_picture}

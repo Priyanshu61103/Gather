@@ -107,9 +107,9 @@ const MessagePage = () => {
 
   return (
     <div>
-      <div className="h-fit flex flex-col lg:ml-[250px] w-[350px] lg:w-[1275px] bg-gray-100">
+      <div className="h-fit flex flex-col lg:ml-[250px] w-[375px] lg:w-[1275px] bg-gray-100">
         <Sidebar />
-        <div className="h-fit w-full bg-gray-200 p-2 mr-20 lg:mr-0 lg:mx-16 px-10 py-1 top-28 lg:top-0 border-b-2 border-gray-400">
+        <div className="h-fit w-full bg-gray-200 p-2 mr-20 lg:mr-0 lg:mx-16 px-10 py-1 top-40 lg:top-0 border-b-2 border-gray-400">
           <div>
             {senderData &&
               senderData.map((data) => (
