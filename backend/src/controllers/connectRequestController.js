@@ -76,6 +76,7 @@ export const acceptedRequestController = async (req, resp) => {
     transport.sendMail(mailOptions, (error, info) => {
       if (error) {
         resp.status(500).send({ message: "Operation Failed", success: false });
+        return;
       }
       resp
         .status(200)
