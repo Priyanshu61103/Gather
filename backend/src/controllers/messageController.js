@@ -27,7 +27,9 @@ export async function postMessageController(req, resp) {
         ],
       });
       data["media_url"] = url;
-      await fs.unlink(img.path);
+      fs.unlink(img.path, (error) => {
+        console.log(error);
+      });
     }
     const result = await messageModel.create(data);
     if (result) {

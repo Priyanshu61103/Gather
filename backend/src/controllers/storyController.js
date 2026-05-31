@@ -19,7 +19,9 @@ export async function createStoryController(req, resp) {
         transformation: [{ quality: "auto", format: "webp", width: "512" }],
       });
       data.media_url = url;
-      await fs.unlink(mediaFile.path);
+      fs.unlink(mediaFile.path,(error)=>{
+              console.log(error);
+      });
     }
     const result = await storyModel.create(data);
     if (result) {

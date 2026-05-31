@@ -28,7 +28,9 @@ export async function createPostController(req, resp) {
 
       image_urls.push(url);
       data.image_urls = image_urls;
-      await fs.unlink(files[0].path);
+      fs.unlink(files[0].path, (error) => {
+        console.log(error);
+      });
     }
     const result = await postModel.create(data);
     if (result) {
@@ -58,21 +60,17 @@ export async function getPostsController(req, resp) {
   try {
     const result = await postModel.find();
     if (result) {
-      resp
-        .status(200)
-        .send({
-          message: "Posts Data is Fetched from Database",
-          success: true,
-          result,
-        });
+      resp.status(200).send({
+        message: "Posts Data is Fetched from Database",
+        success: true,
+        result,
+      });
       return;
     } else {
-      resp
-        .status(500)
-        .send({
-          message: "Posts Data is Not Fetched from Database",
-          success: false,
-        });
+      resp.status(500).send({
+        message: "Posts Data is Not Fetched from Database",
+        success: false,
+      });
       return;
     }
   } catch (error) {
@@ -96,24 +94,27 @@ export async function updateLikesController(req, resp) {
     resp.status(500).send({ message: "Likes Not Updated", success: false });
     return;
   } catch (error) {
-    resp.status(500).send({ message: error.message , success: false });
+    resp.status(500).send({ message: error.message, success: false });
     return;
   }
 }
 
-
-export async function getPostContoller(req,resp){
-   try{
-      const { id } = req.params;
-      const result = await postModel.findOne({_id:id});
-      if(result){
-         resp.status(200).send({message:"Post Fetched From Database",success:true,result});
-         return;  
-      }
-       resp.status(500).send({message:"Post Not Fetched From Database",success:false});
-       return;  
-   }catch(error){
-       resp.status(500).send({message:error.message,success:false});
-       return;   
-   }
+export async function getPostContoller(req, resp) {
+  try {
+    const { id } = req.params;
+    const result = await postModel.findOne({ _id: id });
+    if (result) {
+      resp
+        .status(200)
+        .send({ message: "Post Fetched From Database", success: true, result });
+      return;
+    }
+    resp
+      .status(500)
+      .send({ message: "Post Not Fetched From Database", success: false });
+    return;
+  } catch (error) {
+    resp.status(500).send({ message: error.message, success: false });
+    return;
+  }
 }
