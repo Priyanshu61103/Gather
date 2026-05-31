@@ -144,7 +144,6 @@ const Connections = () => {
         arr2.connections = [...arr2.connections, localStorage.getItem("email")];
         updatedPayload = [...updatedPayload, arr, arr2];
         console.log(updatedPayload);
-        alert("Yayy ! You Both are Connected Now");
         dispatch(setUserData(updatedPayload));
         setChanger(true);
         return;
