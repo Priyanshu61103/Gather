@@ -287,7 +287,7 @@ const Profile = () => {
                     postsData.map((data) => (
                       <div
                         key={data._id}
-                       className="h-fit w-fit bg-white rounded-lg text-black p-5 z-30"
+                       className="h-fit lg:w-[740px] w-fit bg-white rounded-lg text-black p-5 z-30"
                       >
                         <div className="flex gap-x-2">
                           <img
