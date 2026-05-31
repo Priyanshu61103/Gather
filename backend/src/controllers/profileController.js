@@ -55,7 +55,7 @@ export async function editProfileController(req, resp) {
 
     if (files && files["cover_photo"]) {
       const stream = fs.createReadStream(files["cover_photo"][0].path);
-      const coverPhotoResponse = await imageKit.files.upload({
+      const coverPhotoResponse = await imageKit.upload({
         file: stream,
         fileName: files["cover_photo"][0].originalname,
       });

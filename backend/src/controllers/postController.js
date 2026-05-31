@@ -9,10 +9,10 @@ export async function createPostController(req, resp) {
     const files = req.files;
     const image_urls = [];
     if (!data.image_urls) {
-      const stream = fs.createReadStream(files.path);
+      const stream = fs.createReadStream(files[0].path);
       const response = await imageKit.files.upload({
         file: stream,
-        fileName: files.originalname,
+        fileName: files[0].originalname,
       });
       const url = imageKit.helper.buildSrc({
         urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
@@ -27,7 +27,7 @@ export async function createPostController(req, resp) {
 
       image_urls.push(url);
       data.image_urls = image_urls;
-      await fs.unlink(files.path);
+      await fs.unlink(files[0].path);
     }
     const result = await postModel.create(data);
     if (result) {
