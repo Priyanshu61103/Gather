@@ -107,9 +107,9 @@ const MessagePage = () => {
 
   return (
     <div>
-      <div className="h-fit flex flex-col lg:ml-[250px] w-[375px] lg:w-[1275px] bg-gray-100">
+      <div className="h-fit flex flex-col lg:ml-[250px] w-[380px] lg:w-[1275px] bg-gray-100">
         <Sidebar />
-        <div className="h-fit w-full bg-gray-200 p-2 mr-20 lg:mr-0 lg:mx-16 px-10 py-1 relative top-12 lg:top-0 border-b-2 border-gray-400">
+        <div className="h-fit w-full bg-gray-200 p-2 mr-20 lg:mr-0 lg:mx-16 px-10 py-1 relative top-16 lg:top-0 border-b-2 border-gray-400">
           <div>
             {senderData &&
               senderData.map((data) => (
@@ -153,8 +153,8 @@ const MessagePage = () => {
                       <div
                         className={
                           data.from_user_email == localStorage.getItem("email")
-                            ? "w-fit h-fit text-sm rounded-lg bg-green-100 p-2 lg:p-4"
-                            : "w-fit h-fit text-sm rounded-lg bg-white p-2 lg:p-4"
+                            ? "w-fit h-fit text-xs lg:text-sm rounded-lg bg-green-100 p-2 lg:p-4"
+                            : "w-fit h-fit text-xs lg:text-sm rounded-lg bg-white p-2 lg:p-4"
                         }
                       >
                         <h1 className="w-52 lg:w-auto">{data.text}</h1>
@@ -174,7 +174,7 @@ const MessagePage = () => {
                         <img
                           src={data.media_url}
                           alt=""
-                          className="w-50 h-32 lg:h-60 lg:w-50 rounded-lg"
+                          className="w-44 h-32 lg:h-60 lg:w-50 rounded-lg"
                         />
                         <p className="flex gap-x-2 text-xs text-gray-600 justify-end mt-2">
                           {moment(data.createdAt).format("hh:mm A")}
