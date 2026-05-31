@@ -109,7 +109,7 @@ const MessagePage = () => {
     <div>
       <div className="h-fit flex flex-col lg:ml-[250px] w-[375px] lg:w-[1275px] bg-gray-100">
         <Sidebar />
-        <div className="h-fit w-full bg-gray-200 p-2 mr-20 lg:mr-0 lg:mx-16 px-10 py-1 top-40 lg:top-0 border-b-2 border-gray-400">
+        <div className="h-fit w-full bg-gray-200 p-2 mr-20 lg:mr-0 lg:mx-16 px-10 py-1 relative top-28 lg:top-0 border-b-2 border-gray-400">
           <div>
             {senderData &&
               senderData.map((data) => (
@@ -141,7 +141,7 @@ const MessagePage = () => {
           <div>
             {messageData &&
               messageData.map((data) => (
-                <div key={data._id} className="m-1 lg:m-5">
+                <div key={data._id} className="w-[375px] lg:w-full m-2 lg:m-5">
                   <div
                     className={
                       data.from_user_email == localStorage.getItem("email")
