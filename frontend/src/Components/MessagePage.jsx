@@ -192,7 +192,7 @@ const MessagePage = () => {
                 </div>
               ))}
           </div>
-          <div ref={bottomElementRef} className="m-12 lg:m-0" ></div>
+          <div ref={bottomElementRef} className="mb-24 lg:mb-0" ></div>
           <div className="fixed bottom-4 left-10 lg:bottom-2 lg:left-[550px]">
             <div className="h-16 w-[275px] lg:w-[700px] bg-white rounded-full border-2 p-2 lg:p-5 flex justify-between items-center">
               <input
