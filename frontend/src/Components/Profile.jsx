@@ -27,8 +27,6 @@ const Profile = () => {
   const [alertBtn, setAlertBtn] = useState(false);
   let contentArray = [];
 
-  console.log("PROFILe:",profile);
-
   const getPostsData = async () => {
     try {
       const response = await fetch(`/api/get-posts-data`, {
@@ -44,8 +42,6 @@ const Profile = () => {
         const userPostData = arr.filter((info) => postArray.includes(info._id));
         userPostData.reverse();
         setPostsData(userPostData);
-        console.log(arr);
-        console.log(postArray);
         return;
       } else {
         return;
@@ -291,7 +287,7 @@ const Profile = () => {
                     postsData.map((data) => (
                       <div
                         key={data._id}
-                       className="h-fit lg:w-[740px] w-fit bg-white rounded-lg text-black p-5 z-30"
+                       className="h-fit w-fit bg-white rounded-lg text-black p-5 z-30"
                       >
                         <div className="flex gap-x-2">
                           <img
@@ -304,7 +300,7 @@ const Profile = () => {
                            className="h-12 w-12 lg:h-16 lg:w-16 rounded-full"
                           />
                           <div>
-                            <h1 className="font-bold text-md lg:text-lg">{localStorage.getItem("name")}</h1>
+                            <h1 className="font-bold text-md lg:text-lg">{profile[0].full_name}</h1>
                             <div className="flex justify-center items-center gap-x-2 text-gray-600 text-xs lg:text-sm font-semibold">
                               <p>@{profile[0].username}</p>
                               <div className="h-1 w-1 rounded-full text-sm lg:text-md bg-gray-600"></div>
