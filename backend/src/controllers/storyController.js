@@ -8,6 +8,7 @@ export async function createStoryController(req, resp) {
     let data = req.body;
     const mediaFile = req.file;
     if (mediaFile) {
+      console.log(mediaFile);
       const response = await imageKit.files.upload({
         file: fs.createReadStream(mediaFile.path),
         fileName: mediaFile.originalname,

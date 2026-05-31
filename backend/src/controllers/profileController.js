@@ -37,6 +37,7 @@ export async function editProfileController(req, resp) {
       full_name: data.full_name,
       updatedAt: new Date(),
     };
+    console.log(files);
     if (files && files["profile_picture"]) {
       const stream = fs.createReadStream(files["profile_picture"][0].path);
       const profileResponse = await imageKit.files.upload({
