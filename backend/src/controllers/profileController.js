@@ -51,7 +51,7 @@ export async function editProfileController(req, resp) {
       });
       updatedData.profile_picture = url;
 
-      await fs.unlink(files["profile_picture"][0].path);
+      //await fs.unlink(files["profile_picture"][0].path);
     }
 
     if (files && files["cover_photo"]) {
@@ -66,7 +66,7 @@ export async function editProfileController(req, resp) {
         transformation: [{ quality: "auto", format: "webp", width: "1280" }],
       });
       updatedData.cover_photo = url;
-      await fs.unlink(files["cover_photo"][0].path);
+      //await fs.unlink(files["cover_photo"][0].path);
     }
 
     const result = await userModel.updateMany(
