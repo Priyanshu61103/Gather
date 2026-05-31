@@ -137,7 +137,7 @@ const MessagePage = () => {
               ))}
           </div>
         </div>
-        <div className="min-h-screen h-fit w-fit p-4 lg:p-16">
+        <div className="min-h-screen h-fit p-4 lg:p-16">
           <div>
             {messageData &&
               messageData.map((data) => (
