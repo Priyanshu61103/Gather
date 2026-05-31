@@ -109,7 +109,7 @@ const MessagePage = () => {
     <div>
       <div className="h-fit flex flex-col lg:ml-[250px] w-[375px] lg:w-[1275px] bg-gray-100">
         <Sidebar />
-        <div className="h-fit w-full bg-gray-200 p-2 mr-20 lg:mr-0 lg:mx-16 px-10 py-1 relative top-16 lg:top-0 border-b-2 border-gray-400">
+        <div className="h-fit w-full bg-gray-200 p-2 mr-20 lg:mr-0 mb-12 lg:mb-0 lg:mx-16 px-10 py-1 relative top-16 lg:top-0 border-b-2 border-gray-400">
           <div>
             {senderData &&
               senderData.map((data) => (
@@ -141,7 +141,7 @@ const MessagePage = () => {
           <div>
             {messageData &&
               messageData.map((data) => (
-                <div key={data._id} className="w-full m-2 lg:m-5">
+                <div key={data._id} className="m-2 lg:m-5">
                   <div
                     className={
                       data.from_user_email == localStorage.getItem("email")
@@ -192,8 +192,8 @@ const MessagePage = () => {
                 </div>
               ))}
           </div>
-          <div className="fixed bottom-4 left-10 lg:bottom-2 lg:left-[550px]">
-            <div className="h-16 w-[250px] lg:w-[700px] bg-white rounded-full border-2 p-2 lg:p-5 flex justify-between items-center">
+          <div className="fixed bottom-4 left-10 lg:bottom-2 lg:left-[550px] mt-12 lg:mt-0">
+            <div className="h-16 w-[275px] lg:w-[700px] bg-white rounded-full border-2 p-2 lg:p-5 flex justify-between items-center">
               <input
                 type="text"
                 placeholder="Type a message..."
