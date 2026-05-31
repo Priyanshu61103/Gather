@@ -84,7 +84,7 @@ const CreateStory = () => {
     }
   };
   return (
-    <div className="lg:h-auto lg:w-auto h-80 w-80 fixed inset-0 top-8 lg:top-0 flex lg:justify-center z-50 opacity-100 ml-3 lg:ml-0">
+    <div className="lg:h-[420px] lg:w-[420px] h-80 w-80 fixed inset-0 top-8 lg:top-0 flex lg:justify-center z-50 opacity-100 ml-3 lg:ml-0">
       <div className="h-fit">
         <div className="h-12 w-72 lg:w-96 flex gap-x-28 lg:gap-x-40 items-center mb-3">
           <div onClick={() => dispatch(switchOff())}>
@@ -97,7 +97,7 @@ const CreateStory = () => {
             name=""
             id=""
             rows="15"
-            cols="45"
+            cols="35"
             placeholder="What's on your mind ?"
             className="rounded-lg lg:p-5 p-2 placeholder:text-lg placeholder:font-semibold"
             style={{
