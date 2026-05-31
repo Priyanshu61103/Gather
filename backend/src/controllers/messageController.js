@@ -8,15 +8,15 @@ export async function postMessageController(req, resp) {
     const data = req.body;
     const img = req.file;
     if (data.media_type == "image") {
-      const fileBuffer = img.buffer;
+      const stream = fs.createReadStream(img.path);
       const response = await imageKit.upload({
-        file: fileBuffer,
+        file: stream,
         fileName: img.originalname,
       });
 
-      const url = imageKit.url({
+      const url = imageKit.helper.buildSrc({
         urlEndpoint: IMAGEKIT_URL_ENDPOINT,
-        path: response.filePath,
+        src: response.filePath,
         transformation: [
           {
             height: "auto",
@@ -26,6 +26,7 @@ export async function postMessageController(req, resp) {
         ],
       });
       data["media_url"] = url;
+      await fs.unlink(img.path);
     }
     const result = await messageModel.create(data);
     if (result) {

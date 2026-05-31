@@ -8,20 +8,16 @@ export async function profileController(req, resp) {
     const { email } = req.body;
     const result = await userModel.find({ email });
     if (result) {
-      resp
-        .status(200)
-        .send({
-          message: "Profile Data Fetched from Database",
-          success: true,
-          result,
-        });
+      resp.status(200).send({
+        message: "Profile Data Fetched from Database",
+        success: true,
+        result,
+      });
     } else {
-      resp
-        .status(404)
-        .send({
-          message: "Profile Data is Not Fetched from Database",
-          success: false,
-        });
+      resp.status(404).send({
+        message: "Profile Data is Not Fetched from Database",
+        success: false,
+      });
     }
   } catch (error) {
     resp
@@ -41,45 +37,36 @@ export async function editProfileController(req, resp) {
       full_name: data.full_name,
       updatedAt: new Date(),
     };
-     if (files && files["profile_picture"]) {
-      const profileFile = files["profile_picture"];
+    if (files && files["profile_picture"]) {
+      const stream = fs.createReadStream(files["profile_picture"][0].path);
       const profileResponse = await imageKit.upload({
-        file: profileFile.buffer,
-        fileName: files["profile_picture"].originalname,
+        file: stream,
+        fileName: files["profile_picture"][0].originalname,
       });
-      const url = imageKit.url({
+      const url = imageKit.helper.buildSrc({
         urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
-        path: profileResponse.filePath,
+        src: profileResponse.filePath,
         transformation: [{ quality: "auto", format: "webp", width: "512" }],
       });
       updatedData.profile_picture = url;
+
+      await fs.unlink(files["profile_picture"][0].path);
     }
 
     if (files && files["cover_photo"]) {
-      const coverPhotoFile = files["cover_photo"];
+      const stream = fs.createReadStream(files["cover_photo"][0].path);
       const coverPhotoResponse = await imageKit.upload({
-        file: coverPhotoFile.buffer,
-        fileName: files["cover_photo"].originalname,
+        file: stream,
+        fileName: files["cover_photo"][0].originalname,
       });
-      const url = imageKit.url({
+      const url = imageKit.helper.buildSrc({
         urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
-        path: coverPhotoResponse.filePath,
+        src: coverPhotoResponse.filePath,
         transformation: [{ quality: "auto", format: "webp", width: "1280" }],
       });
       updatedData.cover_photo = url;
+      await fs.unlink(files["cover_photo"][0].path);
     }
-
-    const coverPhotoFile = files["cover_photo"];
-    const coverPhotoResponse = await imageKit.upload({
-      file: coverPhotoFile.buffer,
-      fileName: files["cover_photo"].originalname,
-    });
-    const url = imageKit.url({
-      urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
-      path: coverPhotoResponse.filePath,
-      transformation: [{ quality: "auto", format: "webp", width: "1280" }],
-    });
-    updatedData.cover_photo = url;
 
     const result = await userModel.updateMany(
       { _id: data._id },

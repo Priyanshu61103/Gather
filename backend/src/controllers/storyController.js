@@ -9,15 +9,16 @@ export async function createStoryController(req, resp) {
     const mediaFile = req.file;
     if (mediaFile) {
       const response = await imageKit.upload({
-        file: mediaFile.buffer,
+        file: fs.createReadStream(mediaFile.path),
         fileName: mediaFile.originalname,
       });
-      const url = imageKit.url({
+      const url = imageKit.helper.buildSrc({
         urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
-        path: response.filePath,
+        src: response.filePath,
         transformation: [{ quality: "auto", format: "webp", width: "512" }],
       });
       data.media_url = url;
+      await fs.unlink(mediaFile.path);
     }
     const result = await storyModel.create(data);
     if (result) {
