@@ -107,7 +107,7 @@ const MessagePage = () => {
 
   return (
     <div>
-      <div className="h-fit flex flex-col lg:ml-[250px] w-[375px] lg:w-[1275px] bg-gray-100">
+      <div className="h-fit flex flex-col lg:ml-[250px] w-[375px] lg:w-screen bg-gray-100">
         <Sidebar />
         <div className="h-fit w-full bg-gray-200 p-2 mr-20 lg:mr-0 mb-12 lg:mb-0 lg:mx-16 px-10 py-1 relative top-16 lg:top-0 border-b-2 border-gray-400">
           <div>
@@ -192,7 +192,8 @@ const MessagePage = () => {
                 </div>
               ))}
           </div>
-          <div className="fixed bottom-4 left-10 lg:bottom-2 lg:left-[550px] mt-12 lg:mt-0">
+          <div ref={bottomElementRef} className="m-12 lg:m-0" ></div>
+          <div className="fixed bottom-4 left-10 lg:bottom-2 lg:left-[550px]">
             <div className="h-16 w-[275px] lg:w-[700px] bg-white rounded-full border-2 p-2 lg:p-5 flex justify-between items-center">
               <input
                 type="text"
@@ -224,7 +225,6 @@ const MessagePage = () => {
           </div>
         </div>
       </div>
-      <div ref={bottomElementRef}></div>
     </div>
   );
 };
