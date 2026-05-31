@@ -3,7 +3,7 @@
 Gather is a responsive, feature-rich full-stack social media web application built using the MERN stack. Designed with a clean separation of concerns, the platform features a custom-built token authentication system, structured Model-View-Controller (MVC) backend architecture, dynamic user interactions, and robust state management.
 
 ## 🚀 Live Demo
-* **Live Link:** https://gather-frontend-j3wm.onrender.com
+* **Live Link:** https://gather-six-nu.vercel.app/
 ## 🛠️ Tech Stack
 
 - **Frontend:** React.js, Redux Toolkit, Tailwind CSS
