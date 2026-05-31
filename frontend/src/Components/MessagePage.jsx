@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import SignInPage from "./SignInPage";
 import Sidebar from "./Sidebar";
 import { Check, CheckCheck, Image, Send } from "lucide-react";
@@ -16,9 +16,11 @@ const MessagePage = () => {
   const [changer, setChanger] = useState(false);
   const userData = useSelector((state) => state.userData.value);
   const bottomElementRef = useRef(null);
+  const navigate = useNavigate();
 
   const fetchData = async () => {
     try {
+      if (userData != [] && userData.payload && userData.payload != []) {
       const info = {
         email_1: localStorage.getItem("email"),
         email_2: email,
@@ -46,6 +48,9 @@ const MessagePage = () => {
       }
       alert("Messages Not Loaded");
       return;
+    }else{
+       navigate("/")
+    }
     } catch (error) {
       alert(error.message);
       return;
