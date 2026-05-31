@@ -10,7 +10,7 @@ export async function createPostController(req, resp) {
     const image_urls = [];
     if (!data.image_urls) {
       const stream = fs.createReadStream(files.path);
-      const response = await imageKit.upload({
+      const response = await imageKit.files.upload({
         file: stream,
         fileName: files.originalname,
       });

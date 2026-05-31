@@ -9,7 +9,7 @@ export async function postMessageController(req, resp) {
     const img = req.file;
     if (data.media_type == "image") {
       const stream = fs.createReadStream(img.path);
-      const response = await imageKit.upload({
+      const response = await imageKit.files.upload({
         file: stream,
         fileName: img.originalname,
       });

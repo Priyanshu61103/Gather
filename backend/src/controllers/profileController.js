@@ -39,7 +39,7 @@ export async function editProfileController(req, resp) {
     };
     if (files && files["profile_picture"]) {
       const stream = fs.createReadStream(files["profile_picture"][0].path);
-      const profileResponse = await imageKit.upload({
+      const profileResponse = await imageKit.files.upload({
         file: stream,
         fileName: files["profile_picture"][0].originalname,
       });
@@ -55,7 +55,7 @@ export async function editProfileController(req, resp) {
 
     if (files && files["cover_photo"]) {
       const stream = fs.createReadStream(files["cover_photo"][0].path);
-      const coverPhotoResponse = await imageKit.upload({
+      const coverPhotoResponse = await imageKit.files.upload({
         file: stream,
         fileName: files["cover_photo"][0].originalname,
       });
