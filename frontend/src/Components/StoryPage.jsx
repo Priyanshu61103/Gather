@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Navigate, useLocation, useParams } from "react-router";
-import { dummyStoriesData } from "../../assets/assets";
 import { X } from "lucide-react";
 import { Link } from "react-router";
 import { useRef } from "react";

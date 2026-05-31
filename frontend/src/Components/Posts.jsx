@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { dummyPostsData } from "../../assets/assets.js";
 import moment from "moment";
 import { Heart, MessageCircle, Share, Share2 } from "lucide-react";
 import { Link } from "react-router";

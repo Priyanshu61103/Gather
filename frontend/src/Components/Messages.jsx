@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SignInPage from "./SignInPage";
 import Sidebar from "./Sidebar";
-import { dummyConnectionsData } from "../../assets/assets.js";
 import { Eye, MessageSquare } from "lucide-react";
 import { Link, useNavigate } from "react-router";
 import { useSelector } from "react-redux";

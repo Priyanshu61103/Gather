@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { dummyStoriesData } from "../../assets/assets";
 import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
 import { switchOff, switchOn } from "../Redux/Slice/storySlice";

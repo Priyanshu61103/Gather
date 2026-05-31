@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router";
-import { dummyConnectionsData, dummyMessagesData } from "../../assets/assets";
 import SignInPage from "./SignInPage";
 import Sidebar from "./Sidebar";
 import { Check, CheckCheck, Image, Send } from "lucide-react";
