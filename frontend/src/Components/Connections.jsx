@@ -144,6 +144,7 @@ const Connections = () => {
         arr2.connections = [...arr2.connections, localStorage.getItem("email")];
         updatedPayload = [...updatedPayload, arr, arr2];
         console.log(updatedPayload);
+        alert("Yayy ! You Both are Connected Now");
         dispatch(setUserData(updatedPayload));
         setChanger(true);
         return;
@@ -308,7 +309,7 @@ const Connections = () => {
             </div>
           </div>
 
-          <div className="h-fit w-[300px] lg:w-[1200px] flex flex-wrap gap-5 mt-10">
+          <div className="h-fit w-[350px] lg:w-[1200px] flex flex-wrap gap-5 mt-10">
             {arr[selectedOption].map((data) => (
               <div className="h-fit w-fit bg-white p-1 lg:p-5" key={data[0]._id}>
                 <div className="flex gap-x-2">
