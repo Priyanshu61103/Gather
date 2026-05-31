@@ -141,7 +141,7 @@ const MessagePage = () => {
           <div>
             {messageData &&
               messageData.map((data) => (
-                <div key={data._id} className="w-full m-2 lg:m-5">
+                <div key={data._id} className="w-full mx-0 my-2 lg:m-5">
                   <div
                     className={
                       data.from_user_email == localStorage.getItem("email")
@@ -153,8 +153,8 @@ const MessagePage = () => {
                       <div
                         className={
                           data.from_user_email == localStorage.getItem("email")
-                            ? "w-fit h-fit text-xs lg:text-sm rounded-lg bg-green-100 p-2 lg:p-4"
-                            : "w-fit h-fit text-xs lg:text-sm rounded-lg bg-white p-2 lg:p-4"
+                            ? "w-fit h-fit text-xs lg:text-sm rounded-lg bg-green-100 p-1 lg:p-4"
+                            : "w-fit h-fit text-xs lg:text-sm rounded-lg bg-white p-1 lg:p-4"
                         }
                       >
                         <h1 className="w-52 lg:w-auto">{data.text}</h1>
@@ -174,7 +174,7 @@ const MessagePage = () => {
                         <img
                           src={data.media_url}
                           alt=""
-                          className="w-44 h-32 lg:h-60 lg:w-50 rounded-lg"
+                          className="h-32 lg:h-60 lg:w-50 rounded-lg"
                         />
                         <p className="flex gap-x-2 text-xs text-gray-600 justify-end mt-2">
                           {moment(data.createdAt).format("hh:mm A")}
