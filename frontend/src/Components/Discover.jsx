@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setUserData } from "../Redux/Slice/userDataSlice.js";
 import { useNavigate } from "react-router";
 import { setAlertButton } from "../Redux/Slice/alertButtonSlice.js";
+import Alert from "./Alert.jsx";
 const Discover = () => {
   const [search, setSearch] = useState("");
   const [completeData, setCompleteData] = useState();
