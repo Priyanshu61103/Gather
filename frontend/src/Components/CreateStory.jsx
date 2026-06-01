@@ -96,7 +96,7 @@ const CreateStory = () => {
           <textarea
             name=""
             id=""
-            rows="10"
+            rows="12"
             cols="60"
             placeholder="What's on your mind ?"
             className="hidden lg:block rounded-lg p-5 placeholder:text-lg placeholder:font-semibold"
@@ -109,7 +109,7 @@ const CreateStory = () => {
            <textarea
             name=""
             id=""
-            rows="10"
+            rows="12"
             cols="38"
             placeholder="What's on your mind ?"
             className="lg:hidden rounded-lg p-2 placeholder:text-lg placeholder:font-semibold"
