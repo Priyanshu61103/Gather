@@ -40,7 +40,7 @@ const ConnectionsTab = () => {
         console.log(userData);
         const updatedData = userData.payload.filter(
           (data, index) =>
-            data.email == localStorage.getItem("email") && index <= 2,
+            data.email != localStorage.getItem("email") && index <= 2,
         );
 
         let arr = [];
