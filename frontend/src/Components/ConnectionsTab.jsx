@@ -36,12 +36,14 @@ const ConnectionsTab = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      console.log(userData);
       if (userData != [] && userData.payload && userData.payload != []) {
         let updatedData = userData.payload.filter(
           (data) =>
             data.email != localStorage.getItem("email")
         );
-        updatedData = updatedData.slice(0,3);    
+        updatedData = updatedData.slice(0,3);
+        console.log(updatedData);    
         let arr = [];
         if (updatedData && updatedData[0]) {
           arr = updatedData[0].connections.map((itr) => {
