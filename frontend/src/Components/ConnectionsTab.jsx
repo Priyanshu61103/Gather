@@ -43,6 +43,7 @@ const ConnectionsTab = () => {
         );
 
         let arr = [];
+        console.log(updatedData);
         if (updatedData && updatedData[0]) {
           arr = updatedData[0].connections.map((itr) => {
             return getData(itr);
