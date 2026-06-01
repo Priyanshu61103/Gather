@@ -97,9 +97,22 @@ const CreateStory = () => {
             name=""
             id=""
             rows="15"
-            cols="40"
+            cols="38"
             placeholder="What's on your mind ?"
-            className="rounded-lg lg:p-5 p-2 placeholder:text-lg placeholder:font-semibold"
+            className="hidden lg:block rounded-lg p-5 placeholder:text-lg placeholder:font-semibold"
+            style={{
+              backgroundColor: `${bgColor[index]}`,
+              "--placeholder-color": textColor[index],
+            }}
+            onChange={(event) => setText(event.target.value)}
+          ></textarea>
+           <textarea
+            name=""
+            id=""
+            rows="15"
+            cols="50"
+            placeholder="What's on your mind ?"
+            className="lg:hidden rounded-lg p-2 placeholder:text-lg placeholder:font-semibold"
             style={{
               backgroundColor: `${bgColor[index]}`,
               "--placeholder-color": textColor[index],
