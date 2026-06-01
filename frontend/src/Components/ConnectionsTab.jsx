@@ -37,14 +37,12 @@ const ConnectionsTab = () => {
   useEffect(() => {
     const fetchData = async () => {
       if (userData != [] && userData.payload && userData.payload != []) {
-        console.log(userData);
         const updatedData = userData.payload.filter(
           (data, index) =>
             data.email != localStorage.getItem("email") && index <= 2,
         );
 
         let arr = [];
-        console.log(updatedData);
         if (updatedData && updatedData[0]) {
           arr = updatedData[0].connections.map((itr) => {
             return getData(itr);
@@ -52,7 +50,6 @@ const ConnectionsTab = () => {
         }
 
         let arr2 = await Promise.all(arr);
-        console.log(arr2);
         setConnectionArray(arr2);
       } else {
         navigate("/");
