@@ -97,7 +97,7 @@ const CreateStory = () => {
             name=""
             id=""
             rows="15"
-            cols="38"
+            cols="50"
             placeholder="What's on your mind ?"
             className="hidden lg:block rounded-lg p-5 placeholder:text-lg placeholder:font-semibold"
             style={{
@@ -110,7 +110,7 @@ const CreateStory = () => {
             name=""
             id=""
             rows="15"
-            cols="50"
+            cols="38"
             placeholder="What's on your mind ?"
             className="lg:hidden rounded-lg p-2 placeholder:text-lg placeholder:font-semibold"
             style={{
