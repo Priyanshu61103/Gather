@@ -95,7 +95,7 @@ const CreateStory = () => {
             <Alert />
           </div>
         )}
-        <div className={(alertButton.payload != "" && alertButton.payload) ? "h-fit relative left-[395px] bottom-12":"h-fit"}>
+        <div className={(alertButton.payload != "" && alertButton.payload) ? "h-fit relative lg:left-[395px] left-0 lg:bottom-12 bottom-0":"h-fit"}>
           <div className="h-12 w-72 lg:w-96 flex gap-x-28 lg:gap-x-40 items-center mb-3">
             <div onClick={() => dispatch(switchOff())}>
               <ArrowBigLeft />
