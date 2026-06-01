@@ -46,7 +46,6 @@ const ConnectionsTab = () => {
           return getData(itr);
         });
         let arr3 = await Promise.all(arr2);
-        console.log("Array:",arr3);
         setConnectionArray(arr3);
       } else {
         navigate("/");
