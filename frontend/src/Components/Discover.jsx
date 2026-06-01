@@ -229,7 +229,7 @@ const Discover = () => {
         <Sidebar />
         <div className="mt-16 lg:mt-0 p-2 lg:p-0">
           {alertButton.payload != "" && alertButton.payload && (
-            <div className="relative z-20">
+            <div className="relative right-32 z-20">
               <Alert />
             </div>
           )}
