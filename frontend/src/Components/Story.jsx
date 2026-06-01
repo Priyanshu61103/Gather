@@ -69,8 +69,10 @@ const Story = () => {
 
       const data = await response.json();
       if (data.success) {
-        setStoryData(data.result);
-        getUsersData(data.result);
+        let arr = data.result;
+        arr.reverse();
+        setStoryData(arr);
+        getUsersData(arr);
       }
     } catch (error) {
       alert("Error");
