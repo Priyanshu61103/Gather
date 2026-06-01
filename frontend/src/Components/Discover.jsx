@@ -23,6 +23,7 @@ const Discover = () => {
   const [followingArray, setFollowingArray] = useState([]);
   const [connectingArray, setConnectingArray] = useState([]);
   const [changer, setChanger] = useState(false);
+  const alertButton = useSelector((state) => state.alertButton.value);
   const navigate = useNavigate();
   const getDiscoverData = () => {
     if (userData != [] && userData.payload && userData.payload != []) {
@@ -57,17 +58,14 @@ const Discover = () => {
         email: profile.email,
         following: newFollowingArray,
       };
-      const response = await fetch(
-        `/api/update-following`,
-        {
-          method: "PUT",
-          body: JSON.stringify(info),
-          headers: {
-            "content-type": "application/json",
-          },
-          credentials: "include",
+      const response = await fetch(`/api/update-following`, {
+        method: "PUT",
+        body: JSON.stringify(info),
+        headers: {
+          "content-type": "application/json",
         },
-      );
+        credentials: "include",
+      });
 
       if (!response) {
         alert("Error");
@@ -94,17 +92,14 @@ const Discover = () => {
         email: email,
         followerEmail: profile.email,
       };
-      const response = await fetch(
-        `/api/update-follower`,
-        {
-          method: "PUT",
-          body: JSON.stringify(info),
-          headers: {
-            "content-type": "application/json",
-          },
-          credentials: "include",
+      const response = await fetch(`/api/update-follower`, {
+        method: "PUT",
+        body: JSON.stringify(info),
+        headers: {
+          "content-type": "application/json",
         },
-      );
+        credentials: "include",
+      });
 
       if (!response) {
         alert("Error");
@@ -168,17 +163,14 @@ const Discover = () => {
         receiverEmail: email,
       };
 
-      const response = await fetch(
-        `/api/save-connect-request`,
-        {
-          method: "PUT",
-          credentials: "include",
-          body: JSON.stringify(info),
-          headers: {
-            "content-type": "application/json",
-          },
+      const response = await fetch(`/api/save-connect-request`, {
+        method: "PUT",
+        credentials: "include",
+        body: JSON.stringify(info),
+        headers: {
+          "content-type": "application/json",
         },
-      );
+      });
 
       if (!response) {
         alert("Error");
@@ -187,7 +179,11 @@ const Discover = () => {
 
       const data = await response.json();
       if (data.success) {
-        alert("Connection Request Sent.");
+        // alert("Connection Request Sent.");
+        setTimeout(() => {
+          dispatch(setAlertButton(""));
+        }, 5000);
+        dispatch(setAlertButton("Connection Request Sent."));
         let updatedPayload = userData.payload.map((info) => {
           console.log(info);
           if (info.email == profile.email) {
@@ -230,7 +226,12 @@ const Discover = () => {
       <div className="min-h-screen h-fit flex flex-col lg:ml-72 lg:py-10 lg:px-16 w-[1110px] bg-gray-200">
         <Sidebar />
         <div className="mt-16 lg:mt-0 p-2 lg:p-0">
-          <h1 className="text-black text-2xl lg:text-4xl font-bold">
+          {alertButton.payload != "" && alertButton.payload && (
+            <div className="relative z-20">
+              <Alert />
+            </div>
+          )}
+          <h1 className="text-black text-2xl lg:text-4xl font-bold z-0">
             Discover
           </h1>
           <p className="text-gray-600 font-semibold w-[300px] text-sm lg:text-md lg:mt-2">
