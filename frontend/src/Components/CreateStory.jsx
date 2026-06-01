@@ -97,7 +97,7 @@ const CreateStory = () => {
             name=""
             id=""
             rows="15"
-            cols="35"
+            cols="40"
             placeholder="What's on your mind ?"
             className="rounded-lg lg:p-5 p-2 placeholder:text-lg placeholder:font-semibold"
             style={{
