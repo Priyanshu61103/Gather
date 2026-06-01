@@ -94,7 +94,7 @@ const ConnectionsTab = () => {
             </Link>
           ))}
         </div>
-      )
+      )}
     </div>
   );
 };
