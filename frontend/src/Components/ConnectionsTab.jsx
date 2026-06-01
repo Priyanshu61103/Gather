@@ -7,6 +7,7 @@ import moment from "moment";
 
 const ConnectionsTab = () => {
   const userData = useSelector((state) => state.userData.value);
+  const userProfileData = useSelector((state) => state.userProfileData.value);
   const [connectionArray, setConnectionArray] = useState([]);
   const navigate = useNavigate();
   const getData = async (email) => {
@@ -38,21 +39,13 @@ const ConnectionsTab = () => {
     const fetchData = async () => {
       console.log(userData);
       if (userData != [] && userData.payload && userData.payload != []) {
-        let updatedData = userData.payload.filter(
-          (data) =>
-            data.email != localStorage.getItem("email")
-        );
-        updatedData = updatedData.slice(0,3);
-        console.log(updatedData);    
-        let arr = [];
-        if (updatedData && updatedData[0]) {
-          arr = updatedData[0].connections.map((itr) => {
-            return getData(itr);
-          });
-        }
-
-        let arr2 = await Promise.all(arr);
-        setConnectionArray(arr2);
+        let arr = userProfileData.payload[0].connections;
+        arr = arr.slice(0,3);
+        arr2 = arr.map((itr) => {
+          return getData(itr);
+        });
+        let arr3 = await Promise.all(arr);
+        setConnectionArray(arr3);
       } else {
         navigate("/");
       }
