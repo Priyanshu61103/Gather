@@ -6,6 +6,8 @@ import { Sparkle } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { switchOff } from "../Redux/Slice/storySlice";
 import { useNavigate } from "react-router";
+import { setAlertButton } from "../Redux/Slice/alertButtonSlice";
+import Alert from "./Alert";
 const CreateStory = () => {
   const bgColor = [
     "#134CAE",
@@ -29,6 +31,7 @@ const CreateStory = () => {
   const [text, setText] = useState("");
   const [upload, setUpload] = useState(null);
   const profileData = useSelector((state) => state.profileData.value);
+  const alertButton = useSelector((state)=>state.alertButton.value);
   const navigate = useNavigate();
   const colorHandler = (itr) => {
     setIndex(itr);
@@ -40,7 +43,6 @@ const CreateStory = () => {
 
   const storyHandler = async (event) => {
     try {
-      console.log("TextBox:",textBox);
       event.preventDefault();
       if (text.trim() == "" && !upload) {
         alert("Please Attach Something to Upload");
@@ -71,7 +73,11 @@ const CreateStory = () => {
       const data = await response.json();
       if (data.success) {
         console.log(data.result);
-        alert("Story Posted Successfully");
+        //alert("Story Posted Successfully");
+        setTimeout(()=>{
+           dispatch(setAlertButton("")); 
+        },50000);
+        dispatch(setAlertButton("Story Posted Successfully"));
         navigate("/");
         return;
       } else {
@@ -85,6 +91,9 @@ const CreateStory = () => {
   };
   return (
     <div className="lg:h-[420px] lg:w-screen h-80 w-80 fixed inset-0 top-8 lg:top-0 flex lg:justify-center z-50 opacity-100 ml-3 lg:ml-0">
+      {alertButton.payload == "" && <div>
+        <Alert/>
+      </div> }
       <div className="h-fit">
         <div className="h-12 w-72 lg:w-96 flex gap-x-28 lg:gap-x-40 items-center mb-3">
           <div onClick={() => dispatch(switchOff())}>
