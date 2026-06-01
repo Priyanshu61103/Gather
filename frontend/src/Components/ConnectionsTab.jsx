@@ -41,7 +41,7 @@ const ConnectionsTab = () => {
       if (userData != [] && userData.payload && userData.payload != []) {
         let arr = userProfileData.payload[0].connections;
         arr = arr.slice(0,3);
-        arr2 = arr.map((itr) => {
+        let arr2 = arr.map((itr) => {
           return getData(itr);
         });
         let arr3 = await Promise.all(arr);
