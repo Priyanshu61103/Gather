@@ -59,7 +59,7 @@ const ConnectionsTab = () => {
 
   return (
     <div>
-      {connectionArray ? (
+      {connectionArray && (
         <div className="w-80 h-fit bg-white rounded-lg p-5">
           <h1 className="font-bold text-black">Connections</h1>
           {connectionArray.map((data) => (
@@ -94,11 +94,7 @@ const ConnectionsTab = () => {
             </Link>
           ))}
         </div>
-      ) : (
-        <div className="font-semibold flex justify-center">
-          No Connections Yet
-        </div>
-      )}
+      )
     </div>
   );
 };
