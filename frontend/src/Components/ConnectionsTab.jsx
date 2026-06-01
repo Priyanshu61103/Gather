@@ -37,6 +37,7 @@ const ConnectionsTab = () => {
   useEffect(() => {
     const fetchData = async () => {
       if (userData != [] && userData.payload && userData.payload != []) {
+        console.log(userData);
         const updatedData = userData.payload.filter(
           (data, index) =>
             data.email == localStorage.getItem("email") && index <= 2,
