@@ -97,7 +97,7 @@ const CreateStory = () => {
             name=""
             id=""
             rows="15"
-            cols="50"
+            cols="60"
             placeholder="What's on your mind ?"
             className="hidden lg:block rounded-lg p-5 placeholder:text-lg placeholder:font-semibold"
             style={{
@@ -119,7 +119,7 @@ const CreateStory = () => {
             }}
             onChange={(event) => setText(event.target.value)}
           ></textarea>
-          <div className="flex gap-x-2">
+          <div className="flex mt-2 gap-x-2">
             {bgColor.map((color, itr) => (
               <div
                 onClick={() => colorHandler(itr)}
