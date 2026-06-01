@@ -76,7 +76,7 @@ const CreateStory = () => {
         setTimeout(() => {
           dispatch(setAlertButton(""));
           dispatch(switchOff());
-        }, 50000);
+        }, 1000);
         dispatch(setAlertButton("Story Posted Successfully"));
       } else {
         alert("Story Not Posted Successfully");
@@ -91,11 +91,11 @@ const CreateStory = () => {
     <div className="lg:h-[420px] lg:w-screen h-80 w-80 fixed inset-0 top-8 lg:top-0 flex lg:justify-center z-50 opacity-100 ml-3 lg:ml-0">
       <div>
         {alertButton.payload != "" && (
-          <div>
+          <div className="relative z-20">
             <Alert />
           </div>
         )}
-        <div className="h-fit">
+        <div className="h-fit relative z-0">
           <div className="h-12 w-72 lg:w-96 flex gap-x-28 lg:gap-x-40 items-center mb-3">
             <div onClick={() => dispatch(switchOff())}>
               <ArrowBigLeft />
