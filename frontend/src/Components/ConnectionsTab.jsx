@@ -37,11 +37,11 @@ const ConnectionsTab = () => {
   useEffect(() => {
     const fetchData = async () => {
       if (userData != [] && userData.payload && userData.payload != []) {
-        const updatedData = userData.payload.filter(
-          (data, index) =>
-            data.email != localStorage.getItem("email") && index <= 2,
+        let updatedData = userData.payload.filter(
+          (data) =>
+            data.email != localStorage.getItem("email")
         );
-
+        updatedData = updatedData.slice(0,3);    
         let arr = [];
         if (updatedData && updatedData[0]) {
           arr = updatedData[0].connections.map((itr) => {
