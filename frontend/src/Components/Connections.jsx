@@ -19,6 +19,7 @@ import { Link, useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserData } from "../Redux/Slice/userDataSlice.js";
 import { setAlertButton } from "../Redux/Slice/alertButtonSlice.js";
+import Alert from "./Alert.jsx";
 const Connections = () => {
   const userData = useSelector((state) => state.userData.value);
   const alertButton = useSelector((state) => state.alertButton.value);
