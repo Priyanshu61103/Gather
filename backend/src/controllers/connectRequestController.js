@@ -66,23 +66,10 @@ export const acceptedRequestController = async (req, resp) => {
       return;
     }
 
-    const mailOptions = {
-      from: "Gather",
-      to: sender,
-      subject: "Connection Request Accepted",
-      text: `Yayy ! Your Connection request has been accepted by ${receiver}.`,
-    };
-
-    transport.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        resp.status(500).send({ message: "Operation Failed", success: false });
-        return;
-      }
-      resp
-        .status(200)
-        .send({ message: "Request Accepted", success: true, result });
-      return;
-    });
+    resp
+      .status(200)
+      .send({ message: "Request Accepted", success: true, result });
+    return;
   } catch (error) {
     resp.status(500).send({ message: error.message, success: false });
     return;
