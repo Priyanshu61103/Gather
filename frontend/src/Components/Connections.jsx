@@ -120,7 +120,6 @@ const Connections = () => {
 
       const data = await response.json();
       if (data.success) {
-        dispatch(setAlertButton("Yayy ! You both are Connected Now"));
         let updatedPayload = userData.payload.filter(
           (itr) =>
             itr.email != email && itr.email != localStorage.getItem("email"),
@@ -149,7 +148,11 @@ const Connections = () => {
       return;
     } catch (error) {
       console.log(error.message);
-      return;
+      setTimeout(() => {
+        dispatch(setAlertButton(""));
+      }, 5000);
+
+      dispatch(setAlertButton("Yayy ! You both are Connected Now"));
     }
   };
 
@@ -172,7 +175,6 @@ const Connections = () => {
 
       const data = await response.json();
       if (data.success) {
-        dispatch(setAlertButton("Connection Declined Successfully"));
         let updatedPayload = userData.payload.filter(
           (itr) =>
             itr.email != email && itr.email != localStorage.getItem("email"),
@@ -193,7 +195,10 @@ const Connections = () => {
         console.log(updatedPayload);
         dispatch(setUserData(updatedPayload));
         setChanger(true);
-        return;
+        setTimeout(() => {
+          dispatch(setAlertButton(""));
+        }, 5000);
+        dispatch(setAlertButton("Connection Declined Successfully"));
       }
       alert("Connection Not Declined.");
       return;

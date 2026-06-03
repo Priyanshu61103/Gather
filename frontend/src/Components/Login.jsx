@@ -113,9 +113,11 @@ const Login = () => {
         localStorage.setItem("user", data.payload.username);
         localStorage.setItem("name", data.payload.full_name);
         localStorage.setItem("email", data.payload.email);
+        setTimeout(() => {
+          dispatch(setAlertButton(""));
+          navigate("/");
+        }, 5000);
         dispatch(setAlertButton("Welcome back @" + data.payload.username));
-        navigate("/");
-        return;
       } else {
         alert("Error");
         console.log(data.message);
@@ -150,9 +152,11 @@ const Login = () => {
         localStorage.setItem("user", data.payload.username);
         localStorage.setItem("name", data.payload.full_name);
         localStorage.setItem("email", data.payload.email);
+        setTimeout(() => {
+          dispatch(setAlertButton(""));
+          navigate("/");
+        }, 5000);
         dispatch(setAlertButton("Welcome @" + data.payload.username));
-        navigate("/");
-        return;
       } else {
         alert("Error");
         console.log(data.message);
