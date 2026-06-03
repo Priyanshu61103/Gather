@@ -71,6 +71,7 @@ export const acceptedRequestController = async (req, resp) => {
       .send({ message: "Request Accepted", success: true, result });
     return;
   } catch (error) {
+    console.log(error.message);
     resp.status(500).send({ message: error.message, success: false });
     return;
   }
