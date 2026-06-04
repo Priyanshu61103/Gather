@@ -134,7 +134,7 @@ const Profile = () => {
           <div className=" bg-gray-200">
             <div>
               {alertBtn && (
-                <div className="relative bottom-24 right-32 z-20">
+                <div className="relative bottom-8 right-20 z-20">
                   <Alert />
                 </div>
               )}
