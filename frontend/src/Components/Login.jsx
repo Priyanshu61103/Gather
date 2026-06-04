@@ -173,7 +173,7 @@ const Login = () => {
     <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
       <div>
         {alertButton.payload != "" && alertButton.payload && (
-          <div className="relative bottom-32 right-[800px] z-20">
+          <div className="relative bottom-28 right-[875px] z-20">
             <Alert />
           </div>
         )}
