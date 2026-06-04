@@ -133,7 +133,7 @@ const Profile = () => {
         <div
           className={
             alertBtn.payload != "" && alertBtn.payload
-              ? "relative top-4"
+              ? "relative bottom-24"
               : "relative top-0"
           }
         >
