@@ -133,7 +133,7 @@ const Profile = () => {
         <div
           className={
             alertBtn
-              ? "relative bottom-12"
+              ? "relative bottom-13"
               : ""
           }
         >
