@@ -181,7 +181,7 @@ const Login = () => {
           className={
             alertButton.payload != "" &&
             alertButton.payload &&
-            "relative bottom-12"
+            "relative bottom-10"
           }
         >
           <div className="h-fit w-72 lg:w-96 bg-white text-black rounded-t-xl flex justify-center py-7 lg:py-10">

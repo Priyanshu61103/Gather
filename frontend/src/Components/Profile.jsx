@@ -133,8 +133,8 @@ const Profile = () => {
         <div
           className={
             alertBtn.payload != "" && alertBtn.payload
-              ? "relative bottom-24"
-              : "relative top-0"
+              ? "relative bottom-56"
+              : ""
           }
         >
           <div className=" bg-gray-200">
