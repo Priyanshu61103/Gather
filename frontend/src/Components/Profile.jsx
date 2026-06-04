@@ -130,7 +130,13 @@ const Profile = () => {
   return (
     <div>
       {!loading && (
-        <div className={(alertBtn.payload != "" && alertBtn.payload) ? "relative top-12" : "relative top-0" }>
+        <div
+          className={
+            alertBtn.payload != "" && alertBtn.payload
+              ? "relative top-12"
+              : "relative top-0"
+          }
+        >
           <div className=" bg-gray-200">
             <div>
               {alertBtn && (
@@ -139,13 +145,7 @@ const Profile = () => {
                 </div>
               )}
             </div>
-            <div
-              className={
-                alertBtn.payload != "" &&
-                alertBtn.payload &&
-                "relative top-12"
-              }
-            >
+            <div>
               <div className="h-fit flex flex-col lg:ml-72 lg:py-10 lg:px-16 w-[300px] lg:w-[1200px] z-0">
                 <div
                   className={
