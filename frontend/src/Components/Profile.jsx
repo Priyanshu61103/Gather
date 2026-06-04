@@ -132,8 +132,8 @@ const Profile = () => {
       {!loading && (
         <div
           className={
-            alertBtn.payload != "" && alertBtn.payload
-              ? "relative bottom-56"
+            alertBtn
+              ? "relative bottom-24"
               : ""
           }
         >
