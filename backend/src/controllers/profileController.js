@@ -47,7 +47,7 @@ export async function editProfileController(req, resp) {
       const url = imageKit.helper.buildSrc({
         urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
         src: profileResponse.filePath,
-        transformation: [{ quality: "auto", format: "webp"}],
+        transformation: [{ quality: "auto", format: "webp", width: "512" ,height : "512"}],
       });
       updatedData.profile_picture = url;
 
