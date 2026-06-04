@@ -134,7 +134,7 @@ const Profile = () => {
           <div className=" bg-gray-200">
             <div>
               {alertBtn && (
-                <div className="relative top-8 left-12 z-20">
+                <div className="relative top-12 left-12 z-20">
                   <Alert />
                 </div>
               )}
@@ -143,7 +143,7 @@ const Profile = () => {
               className={
                 alertBtn.payload != "" &&
                 alertBtn.payload &&
-                "relative bottom-24"
+                "relative top-12"
               }
             >
               <div className="h-fit flex flex-col lg:ml-72 lg:py-10 lg:px-16 w-[300px] lg:w-[1200px] z-0">
