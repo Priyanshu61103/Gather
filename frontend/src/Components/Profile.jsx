@@ -130,11 +130,11 @@ const Profile = () => {
   return (
     <div>
       {!loading && (
-        <div>
+        <div className={(alertBtn.payload != "" && alertBtn.payload) ? "relative top-12" : "relative top-0" }>
           <div className=" bg-gray-200">
             <div>
               {alertBtn && (
-                <div className="relative top-12 left-12 z-20">
+                <div className="relative left-12 z-20">
                   <Alert />
                 </div>
               )}
